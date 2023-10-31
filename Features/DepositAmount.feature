@@ -7,39 +7,39 @@
 
 @DepositAmount_PositiveScenario
 Scenario: user deposits amount into bank account
-	Given user deposits amount into the bank account
+	Given user deposits amount with below details
 	| AccountNumber | Amount |
 	| 233746        |   790  |
 	Then amount is deposited successfully
 
-#
-#@DepositAmount_NegativeScenario
-#Scenario: user withdraws amount from bank account which does not exist
-#	Given user withdraws amount with below details
-#	| AccountNumber | Amount |
-#	| 000001        |   790  |
-#	Then amount is not deposited due to invaild account
-#
-#
-#@WithdrawAmount_NegativeScenario
-#Scenario: user withdraws amount from bank account when amount >90%
-#	Given user withdraws amount with below details
-#	| AccountNumber | Amount |
-#	| 000001        |   10000  |
-#	Then amount is not withdrawn as the amount is more
-#
-#
-#@WithdrawAmount_NegativeScenario
-#Scenario: user withdraws amount from bank account when Account number is invalid
-#	Given user withdraws amount with below details
-#	| AccountNumber | Amount |
-#	| saaksjdha     |   10000  |
-#	Then amount is not withdrawn as Account number is invalid
-#
-#@WithdrawAmount_NegativeScenario
-#Scenario: user withdraws amount from bank account when amount is null
-#	Given user withdraws amount with below details
-#	| AccountNumber | Amount |
-#	| saaksjdha     |   10000  |
-#	Then amount is not withdrawn as the amount is null
+
+@DepositAmount_NegativeScenario
+Scenario: user deposits amount into bank account which does not exist
+	Given user deposits amount with below details
+	| AccountNumber | Amount |
+	| 000001        |   790  |
+	Then amount is not deposited due to invaild account
+
+
+@WithdrawAmount_NegativeScenario
+Scenario: user deposits amount into bank account when amount >$10000
+	Given user deposits amount with below details
+	| AccountNumber | Amount |
+	| 000001        |   12000  |
+	Then amount is not deposited as the amount is more
+
+
+@WithdrawAmount_NegativeScenario
+Scenario: user deposited amount into bank account when Account number is invalid
+	Given user deposited amount with below details
+	| AccountNumber | Amount |
+	| saaksjdha     |   10000  |
+	Then amount is not deposited as Account number is invalid
+
+@WithdrawAmount_NegativeScenario
+Scenario: user deposited amount from bank account when amount is null
+	Given user deposited amount with below details
+	| AccountNumber | Amount |
+	|      |     |
+	Then amount is not withdrawn as the amount and account number is null
 

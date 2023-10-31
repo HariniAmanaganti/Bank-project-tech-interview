@@ -10,8 +10,9 @@ using UserTests.Models;
 namespace UserTests.StepDefinitions
 {
     [Binding]
-    public class WithdrawAmountStepDefinitions
+    public class DepositAmountStepDefinitions
     {
+
         private ApiResponse response;
         private string url;
         private RestApiFunctions functions;
@@ -19,20 +20,28 @@ namespace UserTests.StepDefinitions
         private List<CreateAccountModel> inputModel;
         private Dictionary<string, string> responsebody;
         private string AccountnumberinDB;
-        public WithdrawAmountStepDefinitions(ScenarioContext scenarioContext)
+        public DepositAmountStepDefinitions(ScenarioContext scenarioContext)
         {
             response = new ApiResponse();
             functions = new RestApiFunctions();
         }
-
-        [Given(@"the user wants to withdraw amount from bank account")]
-        public void GivenTheUserWantsToWithdrawAmountFromBankAccount()
+        [Given(@"the user wants to deposit amount from bank account")]
+        public void GivenTheUserWantsToDepositAmountFromBankAccount()
         {
-            url = "http://localhost:5550/api/withdraw";
+            url = "http://localhost:5550/api/deposit";
         }
 
-        [Given(@"user withdraws amount with below details")]
-        public void GivenUserWithdrawsAmountWithBelowDetails(Table table)
+        [Then(@"amount is deposited successfully")]
+        public void ThenAmountIsDepositedSuccessfully()
+        {
+            Assert.AreEqual("OK", responsebody.First().Value);
+            outputModel = JsonConvert.DeserializeObject<CreateAccountModel>(responsebody.Last().Value);
+            Assert.IsNotNull(outputModel);
+            Assert.Greater(outputModel.CurrentBalance, 100);
+        }
+
+        [Given(@"user deposits amount with below details")]
+        public void GivenUserDepositsAmountWithBelowDetails(Table table)
         {
             inputModel = table.CreateSet<CreateAccountModel>() as List<CreateAccountModel>;
             foreach (CreateAccountModel details in inputModel)
@@ -41,42 +50,34 @@ namespace UserTests.StepDefinitions
             }
         }
 
-        [Then(@"amount is successfully withdrawn")]
-        public void ThenAmountIsSuccessfullyWithdrawn()
+        [Then(@"amount is not deposited due to invaild account")]
+        public void ThenAmountIsNotDepositedDueToInvaildAccount()
         {
-            Assert.AreEqual("OK", responsebody.First().Value);
-            outputModel = JsonConvert.DeserializeObject<CreateAccountModel>(responsebody.Last().Value);
-            Assert.IsNotNull(outputModel);
-            Assert.Greater(outputModel.CurrentBalance, 100);
-        }
-
-        [Then(@"amount is not withdrawn due to invaild account")]
-        public void ThenAmountIsNotWithdrawnDueToInvaildAccount()
-        {
-           foreach (CreateAccountModel details in inputModel)
-                {
+            foreach (CreateAccountModel details in inputModel)
+            {
                 if (details.AccountNumber != AccountnumberinDB)
-                    {
+                {
                     Assert.True(responsebody.Last().Value.IndexOf("Account number does not exist.", StringComparison.Ordinal) > 0);
                 }
             }
         }
 
-        [Then(@"amount is not withdrawn as the amount is more")]
-        public void ThenAmountIsNotWithdrawnAsTheAmountIsMore()
+        [Then(@"amount is not deposited as the amount is more")]
+        public void ThenAmountIsNotDepositedAsTheAmountIsMore()
         {
             foreach (CreateAccountModel details in inputModel)
             {
-                if ((details.Amount >(details.CurrentBalance*0.9)))
+                if (details.Amount > 10000)
                 {
-                    Assert.True(responsebody.Last().Value.IndexOf("You are not allowed to withdraw >90% .", StringComparison.Ordinal) > 0);
+                    Assert.True(responsebody.Last().Value.IndexOf("You are not allowed to deposit >$10000 .", StringComparison.Ordinal) > 0);
 
                 }
             }
         }
 
-        [Then(@"amount is not withdrawn as Account number is invalid")]
-        public void ThenAmountIsNotWithdrawnAsAccountNumberIsInvalid()
+
+        [Then(@"amount is not deposited as Account number is invalid")]
+        public void ThenAmountIsNotDepositedAsAccountNumberIsInvalid()
         {
             foreach (CreateAccountModel details in inputModel)
             {
@@ -88,12 +89,12 @@ namespace UserTests.StepDefinitions
             }
         }
 
-        [Then(@"amount is not withdrawn as the amount is null")]
-        public void ThenAmountIsNotWithdrawnAsTheAmountIsNull()
+        [Then(@"amount is not withdrawn as the amount and account number is null")]
+        public void ThenAmountIsNotWithdrawnAsTheAmountAndAccountNumberIsNull()
         {
             foreach (CreateAccountModel details in inputModel)
             {
-                if (details.Amount==null )
+                if (details.Amount == null)
                 {
                     Assert.True(responsebody.Last().Value.IndexOf("Amount cannot be null.", StringComparison.Ordinal) > 0);
 

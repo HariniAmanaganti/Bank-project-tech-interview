@@ -37,7 +37,7 @@ namespace UserTests.Helpers
             return output;
         }
 
-        public async Task<Dictionary<string, string>> PatchWithdrawAmount(string relativePath, CreateAccountModel data)
+        public async Task<Dictionary<string, string>> PatchWithdrawAndDepositAmount(string relativePath, CreateAccountModel data)
         {
 
             _httpClient.DefaultRequestHeaders.Clear();
@@ -50,6 +50,26 @@ namespace UserTests.Helpers
             var requestContent = new StringContent(JsonConvert.SerializeObject(userRecords), Encoding.UTF8, "application/json");
 
             var result = await _httpClient.PatchAsync(relativePath, requestContent);
+            Dictionary<string, string> output = new Dictionary<string, string>
+            {
+                { "StatusCode", "" + result.StatusCode },
+                { "response", result.Content.ReadAsStringAsync().Result}
+
+            };
+            return output;
+        }
+
+        public async Task<Dictionary<string, string>> DeleteAccount(string accountNumber, string accountname, string accounttype, string relativePath)
+        {
+
+            _httpClient.DefaultRequestHeaders.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("AccountNumber", accountNumber);
+            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("AccountName", accountname);
+            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("AccountType", accounttype);
+
+            var result = await _httpClient.DeleteAsync(relativePath);
             Dictionary<string, string> output = new Dictionary<string, string>
             {
                 { "StatusCode", "" + result.StatusCode },

@@ -39,5 +39,5 @@ Scenario: user withdraws amount from bank account when Account number is invalid
 Scenario: user withdraws amount from bank account when amount is null
 	Given user withdraws amount with below details
 	| AccountNumber | Amount |
-	| saaksjdha     |   10000  |
+	|      |     |
 	Then amount is not withdrawn as the amount is null

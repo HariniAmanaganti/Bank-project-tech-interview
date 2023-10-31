@@ -20,23 +20,23 @@ namespace UserTests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("WithdrawAmount")]
-    public partial class WithdrawAmountFeature
+    [NUnit.Framework.DescriptionAttribute("DepositAmount")]
+    public partial class DepositAmountFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "WithdrawAmount.feature"
+#line 1 "DepositAmount.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "WithdrawAmount", "\tAs a user I want to wihtdraw amount from  bank account and in response I should " +
-                    "see the updated balance", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "DepositAmount", "\tAs a user I want to deposit amount into bank account and in response I should se" +
+                    "e the updated balance", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -79,19 +79,19 @@ namespace UserTests.Features
 #line 5
  #line hidden
 #line 6
-  testRunner.Given("the user wants to withdraw amount from bank account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.Given("the user wants to deposit amount from bank account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("user withdraws amount from bank account")]
-        [NUnit.Framework.CategoryAttribute("WithdrawAmount_PositiveScenario")]
-        public virtual void UserWithdrawsAmountFromBankAccount()
+        [NUnit.Framework.DescriptionAttribute("user deposits amount into bank account")]
+        [NUnit.Framework.CategoryAttribute("DepositAmount_PositiveScenario")]
+        public virtual void UserDepositsAmountIntoBankAccount()
         {
             string[] tagsOfScenario = new string[] {
-                    "WithdrawAmount_PositiveScenario"};
+                    "DepositAmount_PositiveScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user deposits amount into bank account", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -115,32 +115,32 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccountNumber",
                             "Amount"});
-                table10.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "233746",
                             "790"});
 #line 10
- testRunner.Given("user withdraws amount with below details", ((string)(null)), table10, "Given ");
+ testRunner.Given("user deposits amount with below details", ((string)(null)), table5, "Given ");
 #line hidden
 #line 13
- testRunner.Then("amount is successfully withdrawn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("amount is deposited successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("user withdraws amount from bank account which does not exist")]
-        [NUnit.Framework.CategoryAttribute("WithdrawAmount_NegativeScenario")]
-        public virtual void UserWithdrawsAmountFromBankAccountWhichDoesNotExist()
+        [NUnit.Framework.DescriptionAttribute("user deposits amount into bank account which does not exist")]
+        [NUnit.Framework.CategoryAttribute("DepositAmount_NegativeScenario")]
+        public virtual void UserDepositsAmountIntoBankAccountWhichDoesNotExist()
         {
             string[] tagsOfScenario = new string[] {
-                    "WithdrawAmount_NegativeScenario"};
+                    "DepositAmount_NegativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account which does not exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user deposits amount into bank account which does not exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -163,80 +163,32 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccountNumber",
                             "Amount"});
-                table11.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "000001",
                             "790"});
-#line 17
- testRunner.Given("user withdraws amount with below details", ((string)(null)), table11, "Given ");
+#line 18
+ testRunner.Given("user deposits amount with below details", ((string)(null)), table6, "Given ");
 #line hidden
-#line 20
- testRunner.Then("amount is not withdrawn due to invaild account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+ testRunner.Then("amount is not deposited due to invaild account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("user withdraws amount from bank account when amount >90%")]
+        [NUnit.Framework.DescriptionAttribute("user deposits amount into bank account when amount >$10000")]
         [NUnit.Framework.CategoryAttribute("WithdrawAmount_NegativeScenario")]
-        public virtual void UserWithdrawsAmountFromBankAccountWhenAmount90()
+        public virtual void UserDepositsAmountIntoBankAccountWhenAmount10000()
         {
             string[] tagsOfScenario = new string[] {
                     "WithdrawAmount_NegativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account when amount >90%", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 24
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
- this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                            "AccountNumber",
-                            "Amount"});
-                table12.AddRow(new string[] {
-                            "000001",
-                            "10000"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user deposits amount into bank account when amount >$10000", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 25
- testRunner.Given("user withdraws amount with below details", ((string)(null)), table12, "Given ");
-#line hidden
-#line 28
- testRunner.Then("amount is not withdrawn as the amount is more", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("user withdraws amount from bank account when Account number is invalid")]
-        [NUnit.Framework.CategoryAttribute("WithdrawAmount_NegativeScenario")]
-        public virtual void UserWithdrawsAmountFromBankAccountWhenAccountNumberIsInvalid()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "WithdrawAmount_NegativeScenario"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account when Account number is invalid", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -259,32 +211,80 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccountNumber",
                             "Amount"});
-                table13.AddRow(new string[] {
+                table7.AddRow(new string[] {
+                            "000001",
+                            "12000"});
+#line 26
+ testRunner.Given("user deposits amount with below details", ((string)(null)), table7, "Given ");
+#line hidden
+#line 29
+ testRunner.Then("amount is not deposited as the amount is more", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("user deposited amount into bank account when Account number is invalid")]
+        [NUnit.Framework.CategoryAttribute("WithdrawAmount_NegativeScenario")]
+        public virtual void UserDepositedAmountIntoBankAccountWhenAccountNumberIsInvalid()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "WithdrawAmount_NegativeScenario"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user deposited amount into bank account when Account number is invalid", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 33
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 5
+ this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "AccountNumber",
+                            "Amount"});
+                table8.AddRow(new string[] {
                             "saaksjdha",
                             "10000"});
-#line 33
- testRunner.Given("user withdraws amount with below details", ((string)(null)), table13, "Given ");
+#line 34
+ testRunner.Given("user deposited amount with below details", ((string)(null)), table8, "Given ");
 #line hidden
-#line 36
- testRunner.Then("amount is not withdrawn as Account number is invalid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+ testRunner.Then("amount is not deposited as Account number is invalid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("user withdraws amount from bank account when amount is null")]
+        [NUnit.Framework.DescriptionAttribute("user deposited amount from bank account when amount is null")]
         [NUnit.Framework.CategoryAttribute("WithdrawAmount_NegativeScenario")]
-        public virtual void UserWithdrawsAmountFromBankAccountWhenAmountIsNull()
+        public virtual void UserDepositedAmountFromBankAccountWhenAmountIsNull()
         {
             string[] tagsOfScenario = new string[] {
                     "WithdrawAmount_NegativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account when amount is null", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 39
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user deposited amount from bank account when amount is null", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -307,17 +307,17 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccountNumber",
                             "Amount"});
-                table14.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "",
                             ""});
-#line 40
- testRunner.Given("user withdraws amount with below details", ((string)(null)), table14, "Given ");
+#line 41
+ testRunner.Given("user deposited amount with below details", ((string)(null)), table9, "Given ");
 #line hidden
-#line 43
- testRunner.Then("amount is not withdrawn as the amount is null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 44
+ testRunner.Then("amount is not withdrawn as the amount and account number is null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
