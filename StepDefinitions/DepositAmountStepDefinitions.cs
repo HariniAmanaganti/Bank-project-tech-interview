@@ -19,17 +19,19 @@ namespace UserTests.StepDefinitions
         private CreateAccountModel outputModel;
         private List<CreateAccountModel> inputModel;
         private Dictionary<string, string> responsebody;
-        private string AccountnumberinDB;
+       // private string AccountnumberinDB;
         public DepositAmountStepDefinitions(ScenarioContext scenarioContext)
         {
             response = new ApiResponse();
             functions = new RestApiFunctions();
         }
-        [Given(@"the user wants to deposit amount from bank account")]
-        public void GivenTheUserWantsToDepositAmountFromBankAccount()
+
+        [Given(@"the user wants to deposit amount to bank account")]
+        public void GivenTheUserWantsToDepositAmountToBankAccount()
         {
             url = "http://localhost:5550/api/deposit";
         }
+
 
         [Then(@"amount is deposited successfully")]
         public void ThenAmountIsDepositedSuccessfully()
@@ -44,21 +46,25 @@ namespace UserTests.StepDefinitions
         public void GivenUserDepositsAmountWithBelowDetails(Table table)
         {
             inputModel = table.CreateSet<CreateAccountModel>() as List<CreateAccountModel>;
+
+        }
+
+        [When(@"the user makes patch call")]
+        public void WhenTheUserMakesPatchCall()
+        {
             foreach (CreateAccountModel details in inputModel)
             {
                 responsebody = functions.PatchWithdrawAndDepositAmount(url, details).Result;
             }
         }
 
+
         [Then(@"amount is not deposited due to invaild account")]
         public void ThenAmountIsNotDepositedDueToInvaildAccount()
         {
             foreach (CreateAccountModel details in inputModel)
             {
-                if (details.AccountNumber != AccountnumberinDB)
-                {
                     Assert.True(responsebody.Last().Value.IndexOf("Account number does not exist.", StringComparison.Ordinal) > 0);
-                }
             }
         }
 
@@ -75,9 +81,8 @@ namespace UserTests.StepDefinitions
             }
         }
 
-
-        [Then(@"amount is not deposited as Account number is invalid")]
-        public void ThenAmountIsNotDepositedAsAccountNumberIsInvalid()
+        [Then(@"amount is not deposited due to invalid account")]
+        public void ThenAmountIsNotDepositedDueToInvalidAccount()
         {
             foreach (CreateAccountModel details in inputModel)
             {
@@ -88,6 +93,7 @@ namespace UserTests.StepDefinitions
                 }
             }
         }
+
 
         [Then(@"amount is not withdrawn as the amount and account number is null")]
         public void ThenAmountIsNotWithdrawnAsTheAmountAndAccountNumberIsNull()

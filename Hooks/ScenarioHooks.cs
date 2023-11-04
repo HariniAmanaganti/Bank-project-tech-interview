@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UserTests.Models;
 
 namespace UserTests.Hooks
 {
@@ -22,6 +23,12 @@ namespace UserTests.Hooks
             var env = TestContext.Parameters["environmentName"];
 
             Assert.IsTrue(!string.IsNullOrEmpty(env), "The environment variable is not set");
+        }
+
+        [AfterScenario]
+        public void AfterScenario()
+        {
+          
         }
     }
 }

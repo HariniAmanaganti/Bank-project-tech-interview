@@ -12,6 +12,7 @@ Scenario: user creates an account in bank
 	| Colin       | Current     | 1200            | 1897687657 |
 	Then account should be created successfully
 	And user gets the account number and details in response
+	Then verify the API status code should be '200'
 
 @CreateAccountAPI_NegativeScenario
 Scenario: user creates an account in bank without mentioning account type
@@ -21,6 +22,7 @@ Scenario: user creates an account in bank without mentioning account type
 	| Colin       |				| 5000            | 1178909083 |
 	Then account is not created 
 	And error message is displayed Account type is required
+	Then verify the API status code should be '400'
 
 @CreateAccountAPI_NegativeScenario
 Scenario: user creates an account in bank with initial deposit less than $100
@@ -30,6 +32,7 @@ Scenario: user creates an account in bank with initial deposit less than $100
 	| Colin       | Savings     | 500             | 1178909083 |
 	Then account is not created 
 	And error message is displayed deposit is less
+	Then verify the API status code should be '400'
 
 @CreateAccountAPI_NegativeScenario
 Scenario: user creates an account in bank with no details
@@ -39,6 +42,7 @@ Scenario: user creates an account in bank with no details
 	|			  |			    |		          |			   |
 	Then account is not created 
 	And error message is displayed to provide details
+	Then verify the API status code should be '400'
 
 
 

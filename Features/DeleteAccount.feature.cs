@@ -120,6 +120,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.Then("the account is deleted sucessfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 12
+ testRunner.Then("verify the API status code should be \'200\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -133,7 +136,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "DeleteAccount_negativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user delete the account from bank which does not exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 14
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -156,11 +159,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
   this.FeatureBackground();
 #line hidden
-#line 15
+#line 16
  testRunner.When("the accountnumber as \'090909\' accountname \'John\' accounttype \'savings\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 17
  testRunner.Then("the account is not deleted due to invalid account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 18
+ testRunner.Then("verify the API status code should be \'400\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -175,7 +181,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "DeleteAccount_negativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user delete the account from bank when headers are null", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 20
+#line 22
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -198,11 +204,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
   this.FeatureBackground();
 #line hidden
-#line 21
+#line 23
  testRunner.When("the accountnumber as \'\' accountname \'\' accounttype \'\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 24
  testRunner.Then("the account is not deleted due to invalid account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 25
+ testRunner.Then("verify the API status code should be \'400\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -217,7 +226,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "DeleteAccount_negativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user delete the account from bank when accountnumber is invalid", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 25
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -240,11 +249,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
   this.FeatureBackground();
 #line hidden
-#line 26
+#line 29
  testRunner.When("the accountnumber as \'iuyftt7\' accountname \'John\' accounttype \'savings\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 27
+#line 30
  testRunner.Then("the account is not deleted due to invalid account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 31
+ testRunner.Then("verify the API status code should be \'417\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -259,7 +271,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "DeleteAccount_negativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user delete the account from bank when account type is invalid", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 30
+#line 34
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -282,11 +294,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
   this.FeatureBackground();
 #line hidden
-#line 31
+#line 35
  testRunner.When("the accountnumber as \'iuyftt7\' accountname \'John\' accounttype \'social\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 32
+#line 36
  testRunner.Then("the account is not deleted due to invalid account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 37
+ testRunner.Then("verify the API status code should be \'417\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -301,7 +316,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "DeleteAccount_negativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user delete the account from bank when balance is non zero", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 35
+#line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -324,11 +339,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
   this.FeatureBackground();
 #line hidden
-#line 36
+#line 41
  testRunner.When("the accountnumber as \'090909\' accountname \'John\' accounttype \'savings\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 37
+#line 42
  testRunner.Then("the account is not deleted the balance exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 43
+ testRunner.Then("verify the API status code should be \'417\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

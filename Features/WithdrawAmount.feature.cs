@@ -127,6 +127,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.Then("amount is successfully withdrawn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 14
+ testRunner.Then("verify the API status code should be \'200\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -140,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "WithdrawAmount_NegativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account which does not exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
+#line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -169,11 +172,14 @@ this.ScenarioInitialize(scenarioInfo);
                 table11.AddRow(new string[] {
                             "000001",
                             "790"});
-#line 17
+#line 18
  testRunner.Given("user withdraws amount with below details", ((string)(null)), table11, "Given ");
 #line hidden
-#line 20
+#line 21
  testRunner.Then("amount is not withdrawn due to invaild account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 22
+ testRunner.Then("verify the API status code should be \'417\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -188,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "WithdrawAmount_NegativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account when amount >90%", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 24
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -217,11 +223,14 @@ this.ScenarioInitialize(scenarioInfo);
                 table12.AddRow(new string[] {
                             "000001",
                             "10000"});
-#line 25
+#line 27
  testRunner.Given("user withdraws amount with below details", ((string)(null)), table12, "Given ");
 #line hidden
-#line 28
+#line 30
  testRunner.Then("amount is not withdrawn as the amount is more", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 31
+ testRunner.Then("verify the API status code should be \'417\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -236,7 +245,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "WithdrawAmount_NegativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account when Account number is invalid", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 32
+#line 35
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -265,11 +274,14 @@ this.ScenarioInitialize(scenarioInfo);
                 table13.AddRow(new string[] {
                             "saaksjdha",
                             "10000"});
-#line 33
+#line 36
  testRunner.Given("user withdraws amount with below details", ((string)(null)), table13, "Given ");
 #line hidden
-#line 36
+#line 39
  testRunner.Then("amount is not withdrawn as Account number is invalid", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 40
+ testRunner.Then("verify the API status code should be \'400\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -284,7 +296,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "WithdrawAmount_NegativeScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user withdraws amount from bank account when amount is null", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 39
+#line 43
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -313,11 +325,14 @@ this.ScenarioInitialize(scenarioInfo);
                 table14.AddRow(new string[] {
                             "",
                             ""});
-#line 40
+#line 44
  testRunner.Given("user withdraws amount with below details", ((string)(null)), table14, "Given ");
 #line hidden
-#line 43
+#line 47
  testRunner.Then("amount is not withdrawn as the amount is null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 48
+ testRunner.Then("verify the API status code should be \'400\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

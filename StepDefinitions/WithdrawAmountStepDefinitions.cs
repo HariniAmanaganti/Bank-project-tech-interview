@@ -35,10 +35,6 @@ namespace UserTests.StepDefinitions
         public void GivenUserWithdrawsAmountWithBelowDetails(Table table)
         {
             inputModel = table.CreateSet<CreateAccountModel>() as List<CreateAccountModel>;
-            foreach (CreateAccountModel details in inputModel)
-            {
-                responsebody = functions.PatchWithdrawAndDepositAmount(url, details).Result;
-            }
         }
 
         [Then(@"amount is successfully withdrawn")]

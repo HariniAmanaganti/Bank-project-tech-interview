@@ -82,5 +82,23 @@ namespace UserTests.StepDefinitions
         {
             Assert.True(responsebody.Last().Value.IndexOf("Please provide user inputs.", StringComparison.Ordinal) > 0);
         }
+
+        [Then(@"verify the API status code should be '([^']*)'")]
+        public void ThenVerifyTheAPIStatusCodeShouldBe(int statuscode)
+        {
+            if (statuscode == 200) {
+                Assert.AreEqual("OK", responsebody.First().Value);
+
+            }
+            else if(statuscode == 400)
+            {
+                Assert.AreEqual("BadRequest", responsebody.First().Value);
+            }
+            else if (statuscode == 417)
+            {
+                Assert.AreEqual("ExpectationFailed", responsebody.First().Value);
+            }
+        }
+
     }
 }
